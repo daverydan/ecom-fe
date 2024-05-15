@@ -18,11 +18,9 @@
 					aria-expanded="false"
 					aria-label="Toggle navigation"
 				>
-					<!-- <span class="navbar-toggler-icon"></span> -->
 					<span class="toggler-icon top-bar"></span>
 					<span class="toggler-icon middle-bar"></span>
 					<span class="toggler-icon bottom-bar"></span>
-					<!-- <i class="menu-icon-closed bi bi-houses text-primary fs-3"></i> -->
 				</button>
 				<div
 					id="navbarSupportedContent"

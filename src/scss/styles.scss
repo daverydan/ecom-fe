@@ -1,7 +1,7 @@
-// Light Mode
+// Light Mode Variable Customizations
 $body-bg: #f4f4f4;
 
-// Dark Mode
+// Dark Mode Variable Customizations
 // $body-bg-dark: #f00;
 
 // Custom Theme Colors
@@ -23,5 +23,5 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 }
 
 .dark .bg-mode {
-	background: rgba(0,0,0, 0);
+	background: #212529;
 }

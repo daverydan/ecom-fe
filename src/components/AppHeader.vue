@@ -1,13 +1,18 @@
 <template>
-	<header class="">
-		<nav class="navbar navbar-expand-lg bg-mode border-bottom">
+	<header>
+		<div style="height: 57px"></div>
+
+		<nav class="navbar navbar-expand-lg bg-mode border-bottom fixed-top">
 			<div class="container-fluid">
 				<RouterLink
-					class="navbar-brand"
+					class="navbar-brand d-flex align-items-center"
+					style="margin-top: -4px;"
 					:to="{ name: 'home' }"
 				>
-					<i class="bi bi-houses text-primary me-1"></i>
-					<span class="text-primary fw-bold">E</span><span class="fw-light">merce</span>
+					<i class="bi bi-bag-check text-primary me-1"></i>
+					<div class="mt-1">
+						<span class="text-primary fw-bold">E</span><span class="fw-light">merce</span>
+					</div>
 				</RouterLink>
 				<button
 					class="navbar-toggler collapsed border-0 d-flex d-lg-none flex-column justify-content-around"
@@ -28,17 +33,47 @@
 				>
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center w-100">
 						<li class="nav-item">
-							<RouterLink
-								class="nav-link active rounded-1"
-								aria-current="page"
-								:to="{ name: 'rent' }"
-							>Rent</RouterLink>
-						</li>
-						<li class="nav-item">
 							<a
 								class="nav-link rounded"
 								href="#"
-							>Buy</a>
+							>Shop</a>
+						</li>
+						<li class="nav-item">
+							<RouterLink
+								class="nav-link active rounded-1 position-relative"
+								aria-current="page"
+								:to="{ name: 'rent' }"
+							>
+								Hot<i class="bi bi-fire"></i>
+							</RouterLink>
+						</li>
+						<li class="nav-item dropdown">
+							<a
+								class="nav-link rounded dropdown-toggle"
+								href="#"
+								role="button"
+								data-bs-toggle="dropdown"
+								aria-expanded="false"
+							>
+								Categories
+							</a>
+							<ul class="dropdown-menu">
+								<li><a
+										class="dropdown-item"
+										href="#"
+									>Action</a></li>
+								<li><a
+										class="dropdown-item"
+										href="#"
+									>Another action</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a
+										class="dropdown-item"
+										href="#"
+									>Something else here</a></li>
+							</ul>
 						</li>
 						<li class="nav-item">
 							<a
@@ -46,61 +81,11 @@
 								href="#"
 							>Sell</a>
 						</li>
-						<li class="nav-item dropdown">
+						<li class="nav-item">
 							<a
-								class="nav-link rounded dropdown-toggle"
+								class="nav-link rounded"
 								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								Manage Property
-							</a>
-							<ul class="dropdown-menu">
-								<li><a
-										class="dropdown-item"
-										href="#"
-									>Action</a></li>
-								<li><a
-										class="dropdown-item"
-										href="#"
-									>Another action</a></li>
-								<li>
-									<hr class="dropdown-divider">
-								</li>
-								<li><a
-										class="dropdown-item"
-										href="#"
-									>Something else here</a></li>
-							</ul>
-						</li>
-						<li class="nav-item dropdown">
-							<a
-								class="nav-link rounded dropdown-toggle"
-								href="#"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
-								Resources
-							</a>
-							<ul class="dropdown-menu">
-								<li><a
-										class="dropdown-item"
-										href="#"
-									>Action</a></li>
-								<li><a
-										class="dropdown-item"
-										href="#"
-									>Another action</a></li>
-								<li>
-									<hr class="dropdown-divider">
-								</li>
-								<li><a
-										class="dropdown-item"
-										href="#"
-									>Something else here</a></li>
-							</ul>
+							>Contact</a>
 						</li>
 					</ul>
 					<div class="d-flex mb-3 mb-sm-0">

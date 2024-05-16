@@ -1,0 +1,15 @@
+.btn-outline-primary {
+	color: rgba(14, 110, 253, 1) !important;
+	&:hover {
+		background: rgba(14, 110, 253, .2);
+	}
+}
+
+.dark {
+	.btn-outline-primary {
+		color: #fff !important;
+		&:hover {
+			background: rgba(14, 110, 253, 1);
+		}
+	}
+}

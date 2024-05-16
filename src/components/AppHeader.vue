@@ -1,13 +1,13 @@
 <template>
 	<header class="">
-		<nav class="navbar navbar-expand-lg">
+		<nav class="navbar navbar-expand-lg bg-mode border-bottom">
 			<div class="container-fluid">
 				<RouterLink
 					class="navbar-brand"
 					:to="{ name: 'home' }"
 				>
 					<i class="bi bi-houses text-primary me-1"></i>
-					<span class="text-primary fw-bold">Real</span><span class="fw-light">Estate</span>
+					<span class="text-primary fw-bold">E</span><span class="fw-light">merce</span>
 				</RouterLink>
 				<button
 					class="navbar-toggler collapsed border-0 d-flex d-lg-none flex-column justify-content-around"
@@ -103,15 +103,19 @@
 							</ul>
 						</li>
 					</ul>
-					<div class="d-flex">
+					<div class="d-flex mb-3 mb-sm-0">
 						<RouterLink
 							:to="{ path: 'home' }"
 							class="btn btn-sm btn-outline-primary me-2"
 						>Login</RouterLink>
 						<RouterLink
 							:to="{ path: 'home' }"
-							class="btn btn-sm btn-primary"
+							class="btn btn-sm btn-primary me-2"
 						>Register</RouterLink>
+						<button class="btn btn-secondary btn-sm btn-mode" type="button" @click="toggleMode">
+							<i class="i-light-mode bi bi-sun-fill"></i>
+							<i class="i-dark-mode bi bi-moon-fill"></i>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -121,6 +125,18 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
+
+const toggleMode = () => {
+	const body = document.body;
+	body.dataset.bsTheme = body.dataset.bsTheme == 'light' ? 'dark' : 'light';
+	if (body.classList.contains('dark')) {
+		body.classList.remove('dark');
+		body.classList.add('light');
+	} else {
+		body.classList.remove('light');
+		body.classList.add('dark');
+	}
+}
 </script>
 
 <style scoped>
@@ -145,12 +161,21 @@ import { RouterLink } from 'vue-router';
 }
 
 .nav-link:hover {
-	background: rgba(0, 0, 0, .05);
+	background: rgba(0, 0, 0, .06);
+}
+
+.dark .nav-link:hover {
+	background: rgba(255, 255, 255, .06);
 }
 
 .nav-link.active {
 	background: rgba(14, 110, 253, .2);
 	color: rgba(14, 110, 253, 1) !important;
+}
+
+.dark .nav-link.active {
+	background: rgba(14, 110, 253, 1);
+	color: white !important;
 }
 
 /* Mobile Toggle Icon */
@@ -191,6 +216,10 @@ import { RouterLink } from 'vue-router';
     left: 0;
     transform: rotate(0deg);
     transition: .25s ease-in-out;
+}
+
+.dark .toggler-icon {
+	background: #e4e4e4;
 }
 
 .middle-bar {
@@ -234,5 +263,43 @@ import { RouterLink } from 'vue-router';
 .navbar-toggler .bottom-bar {
     top: inherit;
     transform: rotate(-135deg);
+}
+
+/* Dark/Light Mode Button */
+.btn-mode {
+	background: transparent;
+	border: 0;
+	color: black;
+	font-size: 15px;
+}
+
+.btn-mode:hover {
+	background: rgba(0, 0, 0, .06);
+	color: black;
+}
+
+.dark .btn-mode {
+	background: transparent;
+	color: white;
+}
+
+.dark .btn-mode:hover {
+	background: rgba(255, 255, 255, .06);
+}
+
+.dark .i-light-mode {
+	display: block;
+}
+
+.i-light-mode {
+	display: none;
+}
+
+.dark .i-dark-mode {
+	display: none;
+}
+
+.i-dark-mode {
+	display: block;
 }
 </style>

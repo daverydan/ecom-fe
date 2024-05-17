@@ -9,6 +9,7 @@
 						class="navbar-brand d-flex align-items-center"
 						style="margin-top: -4px;"
 						:to="{ name: 'home' }"
+						@click="() => onClickOutside"
 					>
 						<i class="bi bi-bag-check text-primary me-1"></i>
 						<div class="mt-1">
@@ -16,6 +17,7 @@
 						</div>
 					</RouterLink>
 					<button
+						ref="menuBtn"
 						class="navbar-toggler collapsed border-0 d-flex d-lg-none flex-column justify-content-around"
 						type="button"
 						data-bs-toggle="collapse"
@@ -37,6 +39,7 @@
 								<a
 									class="nav-link rounded"
 									href="#"
+									@click="() => onClickOutside"
 								>Shop</a>
 							</li>
 							<li class="nav-item">
@@ -50,8 +53,10 @@
 							</li>
 							<li class="nav-item dropdown">
 								<a
+									ref="categoriesLink"
 									class="nav-link rounded dropdown-toggle"
 									href="#"
+									@click.stop
 									role="button"
 									data-bs-toggle="dropdown"
 									aria-expanded="false"
@@ -62,10 +67,12 @@
 									<li><a
 											class="dropdown-item"
 											href="#"
+											@click="() => onClickOutside"
 										>Action</a></li>
 									<li><a
 											class="dropdown-item"
 											href="#"
+											@click="() => onClickOutside"
 										>Another action</a></li>
 									<li>
 										<hr class="dropdown-divider">
@@ -73,6 +80,7 @@
 									<li><a
 											class="dropdown-item"
 											href="#"
+											@click="() => onClickOutside"
 										>Something else here</a></li>
 								</ul>
 							</li>
@@ -80,12 +88,14 @@
 								<a
 									class="nav-link rounded"
 									href="#"
+									@click="() => onClickOutside"
 								>Sell</a>
 							</li>
 							<li class="nav-item">
 								<a
 									class="nav-link rounded"
 									href="#"
+									@click="() => onClickOutside"
 								>Contact</a>
 							</li>
 						</ul>
@@ -112,6 +122,20 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
+import { ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
+
+const menuBtn = ref(null);
+const categoriesLink = ref(null);
+
+onClickOutside(menuBtn, event => {
+	if (event.target == categoriesLink.value) {
+		return;
+	}
+	if (! menuBtn.value.classList.contains('collapsed')) {
+		menuBtn.value.click();
+	}
+})
 
 const toggleMode = () => {
 	const body = document.body;

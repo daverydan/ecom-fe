@@ -101,14 +101,19 @@
 						</ul>
 						<div class="d-flex mb-3 mb-sm-0">
 							<RouterLink
-								:to="{ path: 'home' }"
+								:to="{ name: 'home' }"
 								class="btn btn-sm btn-outline-primary me-2"
 							>Login</RouterLink>
 							<RouterLink
-								:to="{ path: 'home' }"
+								:to="{ name: 'home' }"
 								class="btn btn-sm btn-primary me-2"
 							>Register</RouterLink>
-							<button class="btn btn-secondary btn-sm btn-mode" type="button" @click="toggleMode">
+							<button
+								ref="darkModeBtn"
+								type="button"
+								class="btn btn-secondary btn-sm btn-mode"
+								@click="toggleMode"
+							>
 								<i class="i-light-mode bi bi-sun-fill"></i>
 								<i class="i-dark-mode bi bi-moon-fill"></i>
 							</button>
@@ -127,9 +132,13 @@ import { onClickOutside } from '@vueuse/core'
 
 const menuBtn = ref(null);
 const categoriesLink = ref(null);
+const darkModeBtn = ref(null);
 
 onClickOutside(menuBtn, event => {
-	if (event.target == categoriesLink.value) {
+	for (let child of darkModeBtn.value.children) {
+		if (event.target == child) return;
+	}
+	if (event.target == categoriesLink.value || event.target == darkModeBtn.value) {
 		return;
 	}
 	if (! menuBtn.value.classList.contains('collapsed')) {
@@ -238,7 +247,6 @@ const toggleMode = () => {
 }
 
 /* State when the navbar is collapsed */
-
 .navbar-toggler.collapsed .top-bar {
     position: absolute;
     top: 0px;
@@ -259,7 +267,6 @@ const toggleMode = () => {
 }
 
 /* when navigation is clicked */
-
 .navbar-toggler .top-bar {
     top: inherit;
     transform: rotate(135deg);

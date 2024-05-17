@@ -6,7 +6,7 @@
 		</div>
 		<!-- Slides -->
 		<div class="carousel-inner">
-			<div v-for="(item, i) in items" :key="item.id" class="carousel-item" :class="{ 'active': i == 0 }">
+			<div v-for="(item, i) in items" :key="item.id" class="carousel-item" :class="{ active: i == 0 }">
 				<div class="container-fluid">
 					<div class="row text-black">
 						<div class="col-md-6 pt-4 pt-md-5 ps-md-5 ps-xxl-2 position-relative">

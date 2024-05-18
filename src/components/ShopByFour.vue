@@ -12,7 +12,7 @@
 		<div class="container-sm px-0">
 			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 				<div v-for="item in items" class="col pt-4">
-					<RouterLink :to="{ name: item.url }" class="card text-bg-dark bg-white position-relative p-0 overflow-hidden border-0" :key="item.id" style="height: 235px;">
+					<RouterLink :to="{ path: item.url }" class="card text-bg-dark bg-white position-relative p-0 overflow-hidden border-0" :key="item.id" style="height: 235px;">
 						<div class="bg-img" :style="{ 'background-image': `url(${item.image})` }" style="background-repeat: no-repeat; background-position: center; background-size: contain; height: 235px;"></div>
 						<div class="category-bg position-absolute w-100 rounded-0 bottom-0 left-0 ps-3 d-flex align-items-center">
 							<h5 class="card-title text-capitalize m-0">{{ item.name }}</h5>

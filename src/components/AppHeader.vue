@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<div class="bg-mode" style="height: 57px"></div>
+		<div class="bg-mode" style="height: 58px"></div>
 
 		<div class="bg-mode border-bottom fixed-top">
 			<nav class="navbar navbar-expand-lg mx-auto" style="max-width: 1440px">
@@ -66,24 +66,14 @@
 									Categories
 								</a>
 								<ul class="dropdown-menu">
-									<li>
-										<a class="dropdown-item"
-											href="#"
+									<li v-for="category in categoriesMenu">
+										<RouterLink class="dropdown-item py-2"
+											:to="{ name: category.url }"
 											@click="() => onClickOutside"
-										>Action</a></li>
-									<li>
-										<a class="dropdown-item"
-											href="#"
-											@click="() => onClickOutside"
-										>Another action</a></li>
-									<li>
-										<hr class="dropdown-divider">
+										>
+											<span class="text-capitalize">{{ category.name }}</span>
+										</RouterLink>
 									</li>
-									<li><a
-											class="dropdown-item"
-											href="#"
-											@click="() => onClickOutside"
-										>Something else here</a></li>
 								</ul>
 							</li>
 							<li class="nav-item">
@@ -103,7 +93,7 @@
 								>Support</RouterLink>
 							</li>
 						</ul>
-						<div class="d-flex mb-3 mb-sm-0">
+						<div class="d-flex py-2 my-lg-0">
 							<RouterLink
 								:to="{ name: 'login' }"
 								class="btn btn-sm btn-outline-primary me-2"
@@ -116,7 +106,7 @@
 								ref="darkModeBtn"
 								type="button"
 								class="btn btn-secondary btn-sm btn-mode"
-								@click="toggleMode"
+								@click="toggleDarkMode"
 							>
 								<i class="i-light-mode bi bi-sun-fill"></i>
 								<i class="i-dark-mode bi bi-moon-fill"></i>
@@ -133,6 +123,7 @@
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
+import { categoriesMenu } from '../data.js'
 
 const menuBtn = ref(null);
 const categoriesLink = ref(null);
@@ -150,7 +141,7 @@ onClickOutside(menuBtn, event => {
 	}
 })
 
-const toggleMode = () => {
+const toggleDarkMode = () => {
 	const body = document.body;
 	body.dataset.bsTheme = body.dataset.bsTheme == 'light' ? 'dark' : 'light';
 	if (body.classList.contains('dark')) {

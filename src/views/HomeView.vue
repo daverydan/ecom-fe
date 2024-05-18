@@ -32,6 +32,7 @@ const item = reactive(initItem);
 
 onMounted(() => {
 	// fetch('https://fakestoreapi.com/products/1')
+	// fetch('https://fakestoreapi.com/products/categories')
 	// 	.then(res => res.json())
 	// 	.then(json => {
 	// 		item.value = json

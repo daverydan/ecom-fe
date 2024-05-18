@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		Electronics page
+		Categories page
 	</div>
 </template>
 

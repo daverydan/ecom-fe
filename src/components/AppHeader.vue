@@ -66,7 +66,7 @@
 									Categories
 								</a>
 								<ul class="dropdown-menu">
-									<li v-for="category in categoriesMenu">
+									<li v-for="category in categories">
 										<RouterLink class="dropdown-item py-2"
 											exactActiveClass="active"
 											:to="{ name: category.url }"
@@ -124,7 +124,7 @@
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
-import { categoriesMenu } from '../data.js'
+import { categories } from '../data.js'
 
 const menuBtn = ref(null);
 const categoriesLink = ref(null);

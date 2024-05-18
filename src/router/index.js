@@ -10,6 +10,7 @@ import ElectronicsView from '../views/products/ElectronicsView.vue'
 import JewelryView from '../views/products/JewelryView.vue'
 import MensClothingView from '../views/products/MensClothingView.vue'
 import WomensClothingView from '../views/products/WomensClothingView.vue'
+import CategoriesView from '../views/products/CategoriesView.vue'
 
 const routes = [
   { path: '/', name: 'home',  component: HomeView },
@@ -18,6 +19,7 @@ const routes = [
   { path: '/hot', name: 'hot',  component: HotSellersView },
   { path: '/sell', name: 'sell',  component: SellView },
   { path: '/support', name: 'support',  component: SupportView },
+  { path: '/categories', name: 'categories',  component: CategoriesView },
   { path: '/electronics', name: 'electronics',  component: ElectronicsView },
   { path: '/jewelry', name: 'jewelry',  component: JewelryView },
   { path: '/mens-clothing', name: 'mens-clothing',  component: MensClothingView },

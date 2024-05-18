@@ -36,17 +36,19 @@
 					>
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center w-100">
 							<li class="nav-item">
-								<a
+								<RouterLink
 									class="nav-link rounded"
-									href="#"
+									exactActiveClass="active"
+									:to="{ name: 'home' }"
 									@click="() => onClickOutside"
-								>Shop</a>
+								>Shop</RouterLink>
 							</li>
 							<li class="nav-item">
 								<RouterLink
-									class="nav-link active rounded-1 position-relative"
-									aria-current="page"
-									:to="{ name: 'rent' }"
+									class="nav-link rounded"
+									exactActiveClass="active"
+									:to="{ name: 'hot' }"
+									@click="() => onClickOutside"
 								>
 									Hot<i class="bi bi-fire"></i>
 								</RouterLink>
@@ -64,13 +66,13 @@
 									Categories
 								</a>
 								<ul class="dropdown-menu">
-									<li><a
-											class="dropdown-item"
+									<li>
+										<a class="dropdown-item"
 											href="#"
 											@click="() => onClickOutside"
 										>Action</a></li>
-									<li><a
-											class="dropdown-item"
+									<li>
+										<a class="dropdown-item"
 											href="#"
 											@click="() => onClickOutside"
 										>Another action</a></li>
@@ -85,27 +87,29 @@
 								</ul>
 							</li>
 							<li class="nav-item">
-								<a
+								<RouterLink
 									class="nav-link rounded"
-									href="#"
+									exactActiveClass="active"
+									:to="{ name: 'sell' }"
 									@click="() => onClickOutside"
-								>Sell</a>
+								>Sell</RouterLink>
 							</li>
 							<li class="nav-item">
-								<a
+								<RouterLink
 									class="nav-link rounded"
-									href="#"
+									exactActiveClass="active"
+									:to="{ name: 'support' }"
 									@click="() => onClickOutside"
-								>Contact</a>
+								>Support</RouterLink>
 							</li>
 						</ul>
 						<div class="d-flex mb-3 mb-sm-0">
 							<RouterLink
-								:to="{ name: 'home' }"
+								:to="{ name: 'login' }"
 								class="btn btn-sm btn-outline-primary me-2"
 							>Login</RouterLink>
 							<RouterLink
-								:to="{ name: 'home' }"
+								:to="{ name: 'register' }"
 								class="btn btn-sm btn-primary me-2"
 							>Register</RouterLink>
 							<button

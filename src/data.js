@@ -440,6 +440,8 @@ export const categoriesCarousel = [
     { ...categories[3], ...products[11] },
 ];
 
+export const randomProduct = products[Math.floor(Math.random() * products.length)];
+
 export const womensProducts = products.filter(p => p.category === "women's clothing");
 
 export const mensProducts = products.filter(p => p.category === "men's clothing");

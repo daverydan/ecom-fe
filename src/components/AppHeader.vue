@@ -68,6 +68,7 @@
 								<ul class="dropdown-menu">
 									<li v-for="category in categoriesMenu">
 										<RouterLink class="dropdown-item py-2"
+											exactActiveClass="active"
 											:to="{ name: category.url }"
 											@click="() => onClickOutside"
 										>

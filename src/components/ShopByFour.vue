@@ -2,7 +2,7 @@
 	<div class="shop-by-four">
 		<div class="d-flex align-items-center justify-content-between">
 			<h3 class="">{{ title }}</h3>
-			<RouterLink :to="{ name: url }" class="view-all-link text-decoration-none text-white" style="width: 100px;">
+			<RouterLink :to="{ name: url }" class="view-all-link text-decoration-none" style="width: 100px;">
 				View All
 				<div class="view-all-arrow overflow-hidden d-inline-flex m-0">
 					<i class="bi bi-arrow-right"></i>
@@ -37,25 +37,23 @@ defineProps({
 
 <style lang="scss" scoped>
 .card {
+	box-shadow: none;
+	transform: scale(1);
+	transition: all 200ms ease-in-out;
+
 	.bg-img {
 		transition: opacity 150ms ease-in-out;
 	}
+
 	.category-bg {
 		color: white;
 		height: 25%;
 		background: rgba(0,0,0,0.4);
-		transition: background 150ms ease-in-out;
 	}
 
 	&:hover {
-		.category-bg {
-			color: black;
-			background: rgba(255,255,255,.4);
-		}
-
-		.bg-img {
-			opacity: .75;
-		}
+		box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+		transform: scale(1.1);
 	}
 }
 
@@ -66,8 +64,15 @@ defineProps({
 	}
 }
 
+.dark {
+	.view-all-link {
+		color: white;
+	}
+}
+
 .view-all-link {
 	transition: opacity 200ms ease-in-out;
+	color: black;
 
 	.view-all-arrow {
 		transition: margin 200ms ease-in-out;
